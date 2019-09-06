@@ -19,8 +19,6 @@ task :console do
 end
 
 
-
-
 namespace :db do
 
   desc 'need to give our task access to enviromnet.rb'
@@ -37,5 +35,13 @@ namespace :db do
     task :seed do
       require_relative './db/seeds.rb'
     end
+  
+    desc 'drop into the Pry console'
+  task :console => :environment do
+     Pry.start
+  end
 
 end
+
+  
+
